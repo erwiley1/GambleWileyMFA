@@ -5,14 +5,10 @@ using UnityEngine.UI;
 
 public class CheckForPlayerNearSlots : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    public BoxCollider2D slotProx;
-    public Text gamblePrompt;
+    public BoxCollider2D slotProx; // Collision trigger will prompt player to gamble when near slot machine object
+    public Text gamblePrompt; // floating text box, wil be empty when not near slot machine, will show prompt when near slot machine
+    public GameObject SlotsInterface; // UI and contained script for gambling
+    public GameObject SlotMachine; // will be disabled last
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,9 +20,13 @@ public class CheckForPlayerNearSlots : MonoBehaviour
         gamblePrompt.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerStay2D(Collider2D collision)
     {
-        
+        if (Input.GetKeyDown("enter"))
+        {
+            gamblePrompt.text = "";
+            SlotsInterface.SetActive(true);
+            SlotMachine.SetActive(false);
+        }
     }
 }

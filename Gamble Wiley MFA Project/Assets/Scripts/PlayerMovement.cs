@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed; //allows us to tweak player momvement speed
+    public float moveSpeedMod = 1;
     public Rigidbody2D rb; //reference to RigidBody attached to player
 
     private Vector2 moveDirection; // Vector2 accounts for movement along 2 axes in a plane
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed); // takes direction from ProcessInputs, moves player in that direction based on moveSpeed value
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed * moveSpeedMod); // takes direction from ProcessInputs, moves player in that direction based on moveSpeed value
     }
 
     // This PlayerMovement model determines which direction the player should be moving, rather than the location they should be moving towards
