@@ -170,7 +170,7 @@ MonoBehaviour:
   slotProx: {fileID: 262856536}
   gamblePrompt: {fileID: 1352632458}
   SlotsInterface: {fileID: 1638098688}
-  SlotMachine: {fileID: 0}
+  SlotMachine: {fileID: 262856533}
 --- !u!61 &262856536
 BoxCollider2D:
   m_ObjectHideFlags: 0
