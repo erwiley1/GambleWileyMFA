@@ -10,7 +10,7 @@ namespace GambleVariants
         // default constructor that takes no arguments
         public GambleVariant()
         {
-            _expText = "";
+            _expText = "No information provided.";
             _posMod = 0;
             _posChanceMin = 100;
             _negMod = 0;
@@ -87,6 +87,11 @@ namespace GambleVariants
             }
 
             return _getResult;
+        }
+
+        public string Exposition()
+        {
+            return _expText;
         }
 
         // private values only used within the class or its methods

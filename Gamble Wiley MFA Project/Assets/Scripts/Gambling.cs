@@ -6,7 +6,7 @@ using GambleVariants;
 
 /* What I want this script to do:
  * -attach to the slot machine object in the gambling area
- * -using the GambleVariant template, declare all possible gambles
+ * -using the GambleVariant namespace & class, declare all possible gambles
  * -allow the player to interact with the slot machine to open the gambling interface
  * -upon entering the interface, the slot machine choose a random gamble and tells the player what's at stake
  * -player can choose not to gamble, in which case the machine will retain the current gamble
@@ -20,8 +20,10 @@ using GambleVariants;
 public class Gambling : MonoBehaviour
 {
     GambleVariant EmptyVariant = new GambleVariant();
-    GambleVariant MoveSpeedMinor = new GambleVariant("", 0.2, 25, 0.1, 30, 0, 0, 0, 0);
+    GambleVariant MoveSpeedMinor = new GambleVariant("25% chance to increase your speed by 20%.\n30% chance to reduce your speed by 10%.\nContinue?", 0.2, 25, 0.1, 30, 0, 0, 0, 0);
     GambleVariant RandGenGamble;
+    public Text TalkToPlayer;
+    private bool NeedToGetGamble;
 
     GambleVariant GetGamble()
     {
@@ -45,8 +47,16 @@ public class Gambling : MonoBehaviour
         return RandGenGamble;
     }
 
+    private void Start()
+    {
+        TalkToPlayer.text = "Press 'enter' to get a gamble!\n \nPress 'escape' if you're a coward.";
+    }
+
     private void Update()
     {
+       //  if( && )
+        {
 
+        }
     }
 }
