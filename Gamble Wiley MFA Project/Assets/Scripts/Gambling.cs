@@ -22,9 +22,52 @@ public class Gambling : MonoBehaviour
     GambleVariant EmptyVariant = new GambleVariant();
     GambleVariant MoveSpeedMinor = new GambleVariant("25% chance to increase your speed by 20%.\n30% chance to reduce your speed by 10%.\nContinue?", 0.2, 25, 0.1, 30, 0, 0, 0, 0);
     GambleVariant RandGenGamble;
-    public Text TalkToPlayer;
+    public Text InitialPlayerPrompt;
+    public Text GamblingPromptsInUI;
     private bool NeedToGetGamble;
+    private bool InterfaceIsOpen;
+    private bool inTrigger;
+    public BoxCollider2D slotProx;
+    public GameObject SlotsUI;
+    public GameObject SlotMachine;
 
+    // When the scene starts, we haven't generated a gamble yet and the interface is not open
+    private void Start()
+    {
+        NeedToGetGamble = true;
+        InterfaceIsOpen = false;
+        RandGenGamble = EmptyVariant;
+    }
+
+    void OnTriggerEnter2D()
+    {
+        InitialPlayerPrompt.text = "Feeling lucky? Press 'enter' to gamble!";
+        inTrigger = true;
+    }
+
+    void Update()
+    {
+        // When the player moves next to the slot machine and presses the enter key, we stop asking them to gamble, turn on the gambling interface, and disable the slot machine
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) && inTrigger && InterfaceIsOpen == false)
+        {
+            InitialPlayerPrompt.text = "";
+            SlotsUI.SetActive(true);
+            SlotMachine.SetActive(false);
+            InterfaceIsOpen = true;
+        }
+        // Option for the player to back out at any time
+        if (Input.GetKeyDown(KeyCode.Escape) && InterfaceIsOpen == true)
+        {
+
+        }
+    }
+
+    void OnTriggerExit2D()
+    {
+        InitialPlayerPrompt.text = "";
+        inTrigger = false;
+    }
+    
     GambleVariant GetGamble()
     {
         int gambleGet = Random.Range(1, 5);
@@ -45,18 +88,5 @@ public class Gambling : MonoBehaviour
         }
 
         return RandGenGamble;
-    }
-
-    private void Start()
-    {
-        TalkToPlayer.text = "Press 'enter' to get a gamble!\n \nPress 'escape' if you're a coward.";
-    }
-
-    private void Update()
-    {
-       //  if( && )
-        {
-
-        }
     }
 }

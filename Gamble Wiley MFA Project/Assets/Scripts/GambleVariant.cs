@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace GambleVariants
 {
-    public class GambleVariant : MonoBehaviour
+    public class GambleVariant
     {
         // default constructor that takes no arguments
         public GambleVariant()
