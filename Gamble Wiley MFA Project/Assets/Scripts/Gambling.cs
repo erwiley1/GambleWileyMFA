@@ -18,9 +18,6 @@ using GambleVariants;
 
 public class Gambling : MonoBehaviour
 {
-    GambleVariant EmptyVariant = new GambleVariant();
-    GambleVariant MoveSpeedMinor = new GambleVariant("25% chance to increase your speed by 20%.\n30% chance to reduce your speed by 10%.", 0.2, 25, 0.1, 30, 0, 0, 0, 0, "Player movement speed");
-    GambleVariant RandGenGamble;
     public Text InitialPlayerPrompt;
     public Text GamblingPromptsInUI;
     public BoxCollider2D slotProx;
@@ -47,18 +44,7 @@ public class Gambling : MonoBehaviour
         // When the player moves next to the slot machine and presses the enter key, we stop prompting them to open gambling, and then turn on the gambling interface
         if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) && inTrigger && InterfaceIsOpen == false)
         {
-            InitialPlayerPrompt.text = "";
-            SlotsUI.SetActive(true);
-            InterfaceIsOpen = true;
-            // checking for whether player has already generated a gamble in this scene
-            if (NeedToGetGamble == true)
-            {
-                GamblingPromptsInUI.text = "Press 'enter' to get a gamble!\n \nPress 'escape' to exit gambling, you coward."; // see line 66
-            }
-            if (NeedToGetGamble == false)
-            {
-                GamblingPromptsInUI.text = RandGenGamble.Exposition() + "Press 'enter' to try your luck! Or press 'escape' to wuss out again.";
-            }
+            OpenSlotUI();
         }
 
         // When the player needs to get a gamble, we allow them to press enter to do so, then tell them which gamble they got
@@ -130,8 +116,26 @@ public class Gambling : MonoBehaviour
         InitialPlayerPrompt.text = "";
         inTrigger = false;
     }
+
+    // Making methods that can use the WaitForSeconds function (need help debugging)
+    private void OpenSlotUI()
+    {
+        // yield return new WaitWhile(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter));
+        InitialPlayerPrompt.text = "";
+        SlotsUI.SetActive(true);
+        InterfaceIsOpen = true;
+        // checking for whether player has already generated a gamble in this scene
+        if (NeedToGetGamble == true)
+        {
+            GamblingPromptsInUI.text = "Press 'enter' to get a gamble!\n \nPress 'escape' to exit gambling, syou coward.";
+        }
+        if (NeedToGetGamble == false)
+        {
+            GamblingPromptsInUI.text = RandGenGamble.Exposition() + "Press 'enter' to try your luck! Or press 'escape' to wuss out again.";
+        }
+    }
     
-    GambleVariant GetGamble()
+    private GambleVariant GetGamble()
     {
         int gambleGet = Random.Range(1, 5);
 
@@ -157,4 +161,8 @@ public class Gambling : MonoBehaviour
     private bool NeedToGetGamble;
     private bool InterfaceIsOpen;
     private bool inTrigger;
+    private GambleVariant EmptyVariant = new GambleVariant();
+    private GambleVariant MoveSpeedMinor = new GambleVariant("25% chance to increase your speed by 20%.\n30% chance to reduce your speed by 10%.", 0.2, 25, 0.1, 30, 0, 0, 0, 0, "Player movement speed");
+    private GambleVariant RandGenGamble;
+
 }
