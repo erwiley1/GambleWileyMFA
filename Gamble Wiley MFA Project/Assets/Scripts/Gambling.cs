@@ -19,16 +19,14 @@ using GambleVariants;
 public class Gambling : MonoBehaviour
 {
     GambleVariant EmptyVariant = new GambleVariant();
-    GambleVariant MoveSpeedMinor = new GambleVariant("25% chance to increase your speed by 20%.\n30% chance to reduce your speed by 10%.\n \n", 0.2, 25, 0.1, 30, 0, 0, 0, 0);
+    GambleVariant MoveSpeedMinor = new GambleVariant("25% chance to increase your speed by 20%.\n30% chance to reduce your speed by 10%.", 0.2, 25, 0.1, 30, 0, 0, 0, 0, "Player movement speed");
     GambleVariant RandGenGamble;
     public Text InitialPlayerPrompt;
     public Text GamblingPromptsInUI;
-    private bool NeedToGetGamble;
-    private bool InterfaceIsOpen;
-    private bool inTrigger;
     public BoxCollider2D slotProx;
     public GameObject SlotsUI;
     public GameObject SlotMachine;
+    public GameObject Player;
 
     // When the scene starts, we haven't generated a gamble yet and the interface is not open
     private void Start()
@@ -68,10 +66,56 @@ public class Gambling : MonoBehaviour
         {
             GetGamble();
             NeedToGetGamble = false;
-            GamblingPromptsInUI.text = RandGenGamble.Exposition() + "Press 'enter' to try your luck! Or press 'escape' if you're a big chicken.";
+            GamblingPromptsInUI.text = RandGenGamble.Exposition() + "\n \nPress 'enter' to try your luck! Or press 'escape' if you're a big chicken.";
         }
 
-        // When the player has the UI open, has generated a gamble, and presses enter to try their luck, we run 
+        // When the player has the UI open, has generated a gamble, and presses enter to try their luck, we run RollSlots()
+        if (NeedToGetGamble == false && InterfaceIsOpen == true && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+        {
+            RandGenGamble.RollSlots();
+            switch (RandGenGamble.ResultGet())
+            {
+                case 1:
+                case 2:
+                    GamblingPromptsInUI.text = RandGenGamble.OutMessage() + "\n \n" + RandGenGamble.ModTarget() + " reduced by " + 
+                        (int)(RandGenGamble.OutMod() * 100) + "%.\n \n Press 'enter' to get a new gamble, or 'escape' to quit while you're ahead.";
+                    break;
+                case 3:
+                    GamblingPromptsInUI.text = RandGenGamble.OutMessage() + "\n \n Press 'enter' to get a new gamble, or 'escape' to quit while you're ahead.";
+                    break;
+                case 4:
+                case 5:
+                    GamblingPromptsInUI.text = RandGenGamble.OutMessage() + "\n \n" + RandGenGamble.ModTarget() + " increased by " +
+                        (int)(RandGenGamble.OutMod() * 100) + "%.\n \n Press 'enter' to get a new gamble, or 'escape' to quit while you're ahead.";
+                    break;
+
+                default:
+                    GamblingPromptsInUI.text = RandGenGamble.OutMessage() + "\n \n Press 'enter' to get a new gamble, or 'escape' to quit while you're ahead.";
+                    break;
+            }
+
+            NeedToGetGamble = true;
+
+            if (RandGenGamble.ModTarget() == "Player movement speed")
+            {
+                switch (RandGenGamble.ResultGet())
+                {
+                    case 1:
+                    case 2:
+                        Player.GetComponent<PlayerMovement>().moveSpeedMod -= (float)RandGenGamble.OutMod();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                    case 5:
+                        Player.GetComponent<PlayerMovement>().moveSpeedMod += (float)RandGenGamble.OutMod();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
 
         // Option for the player to back out at any time
         if (Input.GetKeyDown(KeyCode.Escape) && InterfaceIsOpen == true)
@@ -108,4 +152,9 @@ public class Gambling : MonoBehaviour
 
         return RandGenGamble;
     }
+    
+    // private variables
+    private bool NeedToGetGamble;
+    private bool InterfaceIsOpen;
+    private bool inTrigger;
 }

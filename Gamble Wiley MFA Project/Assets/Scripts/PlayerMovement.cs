@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed * moveSpeedMod); // takes direction from ProcessInputs, moves player in that direction based on moveSpeed value
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed * moveSpeedMod, moveDirection.y * moveSpeed * moveSpeedMod); // takes direction from ProcessInputs, moves player in that direction based on moveSpeed value
     }
 
     // This PlayerMovement model determines which direction the player should be moving, rather than the location they should be moving towards
