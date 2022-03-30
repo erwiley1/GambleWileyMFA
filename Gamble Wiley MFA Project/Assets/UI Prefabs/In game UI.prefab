@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 5626493915950955781}
   - component: {fileID: 5626493915950955780}
   m_Layer: 5
-  m_Name: Chip Text
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
