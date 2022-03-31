@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+ 
+
     public void LoadNewScene(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
     }
 
-    public void LoadPuzzleScene(Scene sceneToLoad)
+    public void LoadSceneAdditive(string sceneToLoad)
     {
-        SceneManager.LoadSceneAsync(sceneToLoad.name, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
     }
 
     public void QuitGame()
