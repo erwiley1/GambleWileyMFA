@@ -15,13 +15,21 @@ public class Patterns
         int random = Random.Range(0, 1001);
         if (random == 1) { placeHolder = new Vector3(0, 0, 0); coin = 1000; }
         else if (random >= 2 && random <= 50) { placeHolder = new Vector3(1, 1, 1); coin = 500; }
-        else if (random >= 51 && random <= 150) { placeHolder = new Vector3(2, 2, 2); coin = 125; }
-        else if (random >= 151 && random <= 300) { placeHolder = new Vector3(3, 3, 3); coin = 100; }
-        else if (random >= 301 && random <= 500) { placeHolder = new Vector3(4, 4, 4); coin = 50; }
-        else if (random >= 501 && random <= 700) { placeHolder = new Vector3(1, 2, 1); coin = 0; }
-        else if (random >= 701 && random <= 800) { placeHolder = new Vector3(2, 3, 4); coin = 0; }
-        else if (random >= 801 && random <= 900) { placeHolder = new Vector3(3, 4, 1); coin = 0; }
-        else if (random >= 901 && random <= 1000) { placeHolder = new Vector3(4, 3, 4); coin = 0; }
+        else if (random >= 51 && random <= 100) { placeHolder = new Vector3(2, 2, 2); coin = 125; }
+        else if (random >= 101 && random <= 250) { placeHolder = new Vector3(3, 3, 3); coin = 100; }
+        else if (random >= 251 && random <= 400) { placeHolder = new Vector3(4, 4, 4); coin = 50; }
+        else if (random >= 401 && random <= 450) { placeHolder = new Vector3(1, 2, 1); coin = 0; }
+        else if (random >= 451 && random <= 500) { placeHolder = new Vector3(4, 2, 3); coin = 0; }
+        else if (random >= 501 && random <= 550) { placeHolder = new Vector3(1, 2, 3); coin = 0; }
+        else if (random >= 551 && random <= 600) { placeHolder = new Vector3(3, 2, 3); coin = 0; }
+        else if (random >= 601 && random <= 650) { placeHolder = new Vector3(2, 2, 3); coin = 0; }
+        else if (random >= 651 && random <= 700) { placeHolder = new Vector3(1, 4, 3); coin = 0; }
+        else if (random >= 701 && random <= 750) { placeHolder = new Vector3(2, 3, 4); coin = 0; }
+        else if (random >= 751 && random <= 800) { placeHolder = new Vector3(3, 3, 4); coin = 0; }
+        else if (random >= 801 && random <= 850) { placeHolder = new Vector3(3, 4, 1); coin = 0; }
+        else if (random >= 851 && random <= 900) { placeHolder = new Vector3(4, 2, 4); coin = 0; }
+        else if (random >= 901 && random <= 950) { placeHolder = new Vector3(4, 3, 4); coin = 0; }
+        else if (random >= 951 && random <= 1000) { placeHolder = new Vector3(2, 3, 2); coin = 0; }
         for (int i = 0; i < 3; i++)
         {
             image[i] = spirt[(int)placeHolder[i]];
