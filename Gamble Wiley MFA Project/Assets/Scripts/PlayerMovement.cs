@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     // variables for movement
-    public float moveSpeed; //allows us to tweak player momvement speed
+    public float moveSpeed; // declaring but not defining allows us to tweak player momvement speed in inspector
     public float moveSpeedMod = 1;
     public Rigidbody2D rb; //reference to RigidBody attached to player
 
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal"); // determines left/right movement based on key press
         float moveY = Input.GetAxisRaw("Vertical"); // determines up/down movement based on key press
         // GetAxisRaw generates either -1, 0, or 1 rather than any value between -1 and 1 (because we're pressing keys rather than tilting a joystick)
+        // This would have to be changed if we want joystick controls rather than keyboard controls
 
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
@@ -42,14 +43,11 @@ public class PlayerMovement : MonoBehaviour
            Input.GetAxisRaw("Vertical") == 1 ||
            Input.GetAxisRaw("Vertical") == -1)
         {
-            animator.SetFloat("Last_Horizontal",
-                              Input.GetAxisRaw("Horizontal"));
-            animator.SetFloat("Last_Vertical",
-                              Input.GetAxisRaw("Vertical"));
+            animator.SetFloat("Last_Horizontal", Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("Last_Vertical", Input.GetAxisRaw("Vertical"));
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-           animator.SetBool("isAttack", true);
+        if (Input.GetKeyDown(KeyCode.Space)) { animator.SetBool("isAttack", true); } // binds the spacebar as the melee attack button
 
         float shootHor = Input.GetAxis("ShootHorizontal");
         float shootVert = Input.GetAxis("ShootVertical");
@@ -61,18 +59,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         moveDirection = new Vector2(moveX, moveY).normalized; /* converts input into direction
-        for diagonal movement, instead of speed being a factor of X and Y movement speeds, will be limited to normal speed; without '.normalized', there's some Pythagorean shit going on */
+        for diagonal movement, instead of speed being a factor of X and Y movement speeds, will be limited to normal speed;
+        without '.normalized', there's some Pythagorean shit going on */
     }
 
     void FixedUpdate() 
     {
         if (animator.GetBool("isAttack") == true)
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero; // freezes player in place while melee attacking
         }
         else
         {
-            rb.velocity = new Vector2(moveDirection.x * moveSpeed * moveSpeedMod, moveDirection.y * moveSpeed * moveSpeedMod); // takes direction from Update, moves player in that direction based on moveSpeed value
+            rb.velocity = new Vector2(moveDirection.x * moveSpeed * moveSpeedMod, moveDirection.y * moveSpeed * moveSpeedMod);
+            // takes direction from Update, moves player in that direction based on moveSpeed value
         }
     }
     
@@ -95,8 +95,8 @@ public class PlayerMovement : MonoBehaviour
 
     void StopAttack()
     {
-        if (animator.GetBool("isAttack"))
-            animator.SetBool("isAttack", false);
+        if (animator.GetBool("isAttack")) { animator.SetBool("isAttack", false); }
+        // returns character to idle state after attacking
     }
 
     // This PlayerMovement model determines which direction the player should be moving, rather than the location they should be moving towards
