@@ -12,7 +12,10 @@ public class CoinScore : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DisplayScore.theScore += coinVal;
-        Destroy(gameObject);
+        if (collision.tag == "Player")
+        {
+            DisplayScore.theScore += coinVal;
+            Destroy(gameObject);
+        }
     }
 }
