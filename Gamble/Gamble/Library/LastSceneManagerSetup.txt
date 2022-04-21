@@ -1,0 +1,6 @@
+sceneSetups:
+- path: C:/Users/acost/OneDrive/Documents/GitHub/GambleWileyMFA/Gamble Wiley MFA
+    Project/Assets/Scenes/Level.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0

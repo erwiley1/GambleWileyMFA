@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ba39b41c2fece9941bcbbe27ce7ba7c8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Mauritz PERSONAL USE ONLY
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 842e5159c384bbd41af4a16235d23e7b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
