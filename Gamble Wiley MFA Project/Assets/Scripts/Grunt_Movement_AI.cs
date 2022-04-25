@@ -17,8 +17,6 @@ public class Grunt_Movement_AI : MonoBehaviour
             playerPos = new Vector2(target.localPosition.x, target.localPosition.y); // determines position of the player
             enemyPos = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y); // determines position of the grunt
 
-            transform.position = Vector2.MoveTowards(enemyPos, playerPos, 2 * Time.deltaTime); // makes the grunt run towards the player
-
             // the remainder of this update loop ensures the grunt is facing the correct direction while moving
 
             float delta_pos_y = Mathf.Abs(Mathf.Abs(target.position.y) - Mathf.Abs(transform.position.y));
@@ -73,6 +71,34 @@ public class Grunt_Movement_AI : MonoBehaviour
 
                 animator.SetFloat("G_Speed", 1f);
 
+            }
+        }
+
+        if (animator.GetBool("G_isDead"))
+        {
+            KillGrunt();
+        }
+    }
+    
+    void FixedUpdate()
+    {
+        if (animator.GetBool("G_isAttack"))
+        {
+            transform.position = this.transform.position;
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(enemyPos, playerPos, 2 * Time.deltaTime); // makes the grunt run towards the player
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (animator.GetBool("G_isAttack") == false)
+            {
+                animator.SetBool("G_isAttack", true);
             }
         }
     }

@@ -8,7 +8,7 @@ public class StatusManager : MonoBehaviour
 
     private void Start()
     {
-        playerHealth.health = 100;
+        playerHealth.health = playerHealth.maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
