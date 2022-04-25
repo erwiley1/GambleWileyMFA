@@ -7,12 +7,13 @@ public class Grunt_Movement_AI : MonoBehaviour
     public Transform target; // player position
     public Animator animator; // grunt animations
     public float speed; // grunt movement speed
+    public GameObject coinPrefab;
 
     Vector2 playerPos, enemyPos;
     
     void Update()
     {
-        if (!animator.GetBool("G_isDead") && target != null) // if B_isDead is false and the player has a position somewhere on the board, then we can do things
+        if (!animator.GetBool("G_isDead") && target != null) // if G_isDead is false and the player has a position somewhere on the board, then we can do things
         {
             playerPos = new Vector2(target.localPosition.x, target.localPosition.y); // determines position of the player
             enemyPos = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y); // determines position of the grunt
@@ -110,6 +111,7 @@ public class Grunt_Movement_AI : MonoBehaviour
 
     void KillGrunt()
     {
+        Instantiate(coinPrefab, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
 }
