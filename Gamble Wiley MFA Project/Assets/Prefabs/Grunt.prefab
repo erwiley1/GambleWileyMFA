@@ -194,3 +194,4 @@ MonoBehaviour:
   target: {fileID: 4565556375421946739, guid: ac1e50c98980321478b643857ea17af5, type: 3}
   animator: {fileID: 6268721513354135613}
   speed: 3
+  coinPrefab: {fileID: 8681354555449924704, guid: 7ba215d3ca3591e439a0705d495d1a8e, type: 3}

@@ -5,6 +5,8 @@ using UnityEngine;
 public class StatusManager : MonoBehaviour
 {
     public Health playerHealth;
+    public int hitDelay;
+    private bool isDamaged = false;
 
     private void Start()
     {
@@ -15,11 +17,21 @@ public class StatusManager : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            this.playerHealth.health -= 10;
-            if (playerHealth.health <= 0)
+            if (!isDamaged)
             {
-                Destroy(this.gameObject);
+                isDamaged = true;
+                this.playerHealth.health -= 10;
+                if (playerHealth.health <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
+                Invoke("resetDamage", hitDelay);
             }
         }
+    }
+
+    void resetDamage()
+    {
+        isDamaged = false;
     }
 }

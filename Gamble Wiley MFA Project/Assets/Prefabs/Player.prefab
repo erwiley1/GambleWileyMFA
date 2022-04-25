@@ -208,7 +208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278827726405504270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76fd000730b2aef40865448372f10ade, type: 3}
   m_Name: 
@@ -228,3 +228,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: e668fd0fd7ab5a34f9f2837546f4cdfc, type: 2}
+  hitDelay: 2

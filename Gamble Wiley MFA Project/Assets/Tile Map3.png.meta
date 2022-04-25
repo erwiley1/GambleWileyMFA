@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5baa812b5323ed34c82ba4610a8cdda6
+guid: 678443e80864d2840adab45869255176
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6838937624156591441
-    second: 256x256_0
+      213: 7933249477613760832
+    second: Tile Map3_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -92,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 256x256_0
+      name: Tile Map3_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 834
-        width: 185
-        height: 124
+        x: 109
+        y: 100
+        width: 865
+        height: 454
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -106,8 +106,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15558e0f889c8ee50800000000000000
-      internalID: 6838937624156591441
+      spriteID: 041b8b32e50981e60800000000000000
+      internalID: 7933249477613760832
       vertices: []
       indices: 
       edges: []

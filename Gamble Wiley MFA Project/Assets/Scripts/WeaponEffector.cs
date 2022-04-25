@@ -21,9 +21,9 @@ public class WeaponEffector : MonoBehaviour
         {
             if (enemy != null)
             {
-                if (!enemy.GetComponent<Animator>().GetBool("B_isDead"))
+                if (!enemy.GetComponent<Animator>().GetBool("G_isDead"))
                 {
-                    enemy.GetComponent<Animator>().SetBool("B_isDead", true);
+                    enemy.GetComponent<Animator>().SetBool("G_isDead", true);
                 }
                 enemy = null;
             }
