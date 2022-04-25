@@ -13,10 +13,21 @@ public class Grunt_Movement_AI : MonoBehaviour
     
     void Update()
     {
+        target = GameObject.FindWithTag("Player").transform;
+
         if (!animator.GetBool("G_isDead") && target != null) // if G_isDead is false and the player has a position somewhere on the board, then we can do things
         {
             playerPos = new Vector2(target.localPosition.x, target.localPosition.y); // determines position of the player
             enemyPos = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y); // determines position of the grunt
+            
+            if (animator.GetBool("G_isAttack"))
+            {
+                transform.position = this.transform.position;
+            }
+            if (!animator.GetBool("G_isAttack"))
+            {
+                transform.position = Vector2.MoveTowards(enemyPos, playerPos, speed * Time.deltaTime);
+            }
 
             // the remainder of this update loop ensures the grunt is facing the correct direction while moving
 
@@ -78,18 +89,6 @@ public class Grunt_Movement_AI : MonoBehaviour
         if (animator.GetBool("G_isDead"))
         {
             KillGrunt();
-        }
-    }
-    
-    void FixedUpdate()
-    {
-        if (animator.GetBool("G_isAttack"))
-        {
-            transform.position = this.transform.position;
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(enemyPos, playerPos, 2 * Time.deltaTime); // makes the grunt run towards the player
         }
     }
 

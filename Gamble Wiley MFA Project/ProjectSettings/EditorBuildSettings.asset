@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kaylin Testing.unity
     guid: b4869995fe588254c82fa05c9dad756a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Gamble scene.unity
     guid: c8075eaaab986ef4382f2f49ffea8cc4
+  - enabled: 1
+    path: Assets/Scenes/PrototypeScene.unity
+    guid: b04a877ec32a8384fb548cdb010c54ac
   m_configObjects: {}
