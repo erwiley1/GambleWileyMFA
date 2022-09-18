@@ -6,6 +6,9 @@ TagManager:
   tags:
   - SlotMachine
   - Enemy
+  - Modifier Manager
+  - Enemy Spawner
+  - Coin
   layers:
   - Default
   - TransparentFX

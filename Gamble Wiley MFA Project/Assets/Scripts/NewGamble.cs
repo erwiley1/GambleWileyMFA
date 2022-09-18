@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//Alex's note: this code was completely uncommentated when I got here so some of this code I'm not exactly sure what it does but it works so I'm not touching it if I don't have to
 public class Patterns
 {
+    //figures out the result of gambling, displays it visually
     public Sprite[] image = new Sprite[3];
     Vector3 placeHolder;
     public int coin;
     public Patterns(Sprite[] spirt)
     {
-
         int random = Random.Range(0, 1001);
-        if (random == 1) { placeHolder = new Vector3(0, 0, 0); coin = 1000; }
-        else if (random >= 2 && random <= 50) { placeHolder = new Vector3(1, 1, 1); coin = 500; }
-        else if (random >= 51 && random <= 100) { placeHolder = new Vector3(2, 2, 2); coin = 125; }
-        else if (random >= 101 && random <= 250) { placeHolder = new Vector3(3, 3, 3); coin = 100; }
-        else if (random >= 251 && random <= 400) { placeHolder = new Vector3(4, 4, 4); coin = 50; }
+        if (random == 1) { placeHolder = new Vector3(0, 0, 0); coin = 0; }
+        else if (random >= 2 && random <= 50) { placeHolder = new Vector3(1, 1, 1); coin = 0; }
+        else if (random >= 51 && random <= 100) { placeHolder = new Vector3(2, 2, 2); coin = 0; }
+        else if (random >= 101 && random <= 250) { placeHolder = new Vector3(3, 3, 3); coin = 0; }
+        else if (random >= 251 && random <= 400) { placeHolder = new Vector3(4, 4, 4); coin = 0; }
         else if (random >= 401 && random <= 450) { placeHolder = new Vector3(1, 2, 1); coin = 0; }
         else if (random >= 451 && random <= 500) { placeHolder = new Vector3(4, 2, 3); coin = 0; }
         else if (random >= 501 && random <= 550) { placeHolder = new Vector3(1, 2, 3); coin = 0; }
@@ -45,15 +45,19 @@ public class NewGamble : MonoBehaviour
     private bool IsSpin = false;
     private bool Spinning = false;
     Patterns pat;
+    private GameObject WaveManager;
     public void roll()
     {
         if (!IsSpin)
+            //checks if its already spinning
         {
             if (Coins < 10)
             {
+                //aborts if you don't have enough coins
                 return;
             }
-            Coins -= 10;
+            Coins -= 10; //updates coins locally
+            WaveManager.GetComponent<wave_manager>().UpdateCoins(-10); //updates coins on wave_manager
             CoinText.text = Coins.ToString();
             pat = new Patterns(image);
             IsSpin = true;
@@ -65,7 +69,8 @@ public class NewGamble : MonoBehaviour
     void Start()
     {
         CoinText.text = Coins.ToString();
-
+        WaveManager = GameObject.FindGameObjectWithTag("Modifier Manager");
+        Coins = WaveManager.GetComponent<wave_manager>().Coins;
     }
 
     // Update is called once per frame
