@@ -10,7 +10,18 @@ public class Grunt_Movement_AI : MonoBehaviour
     public GameObject coinPrefab;
 
     Vector2 playerPos, enemyPos;
-    
+
+    private GameObject modifiers;
+
+    private void Awake()
+    {
+        modifiers = GameObject.FindGameObjectWithTag("Modifier Manager");
+        if (modifiers.GetComponent<modifiers>().current_speed == 2)
+        {
+            speed *= 10;
+        }
+    }
+
     void Update()
     {
         target = GameObject.FindWithTag("Player").transform;
