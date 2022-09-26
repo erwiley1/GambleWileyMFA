@@ -9,8 +9,7 @@ public class wave_manager : MonoBehaviour
 {
     //Wave_Starting as a variable might be useless, I think the way I've coded it we might be able to remove it outright but I'll have to test that
     public int Current_Wave = 1;
-    private int Wave_Started = 2;
-    private int Wave_Starting = 0;
+    private int Wave_Started = 1;
     public int Enemies;
     public int Coins;
     public int Coins_on_ground;
@@ -31,6 +30,7 @@ public class wave_manager : MonoBehaviour
     {
         //will clear current modifiers, increase the current wave number, then load the gambling scene
         Current_Wave++;
+        this.gameObject.GetComponent<modifiers>().reset_modifiers();
         Debug.Log("Wave Ended!");
         SceneManager.LoadScene("Gamble scene");
     }
@@ -42,7 +42,6 @@ public class wave_manager : MonoBehaviour
         //will apply current modifiers to players and enemies
         SceneManager.LoadScene("PrototypeScene");
         Debug.Log(Wave_Started);
-        Wave_Starting = 0;
         Wave_Started = 1;
     }
 
@@ -63,21 +62,6 @@ public class wave_manager : MonoBehaviour
                 Debug.Log("Zero enemies!");
                 EndWave();
             }
-        }
-        if (Wave_Started == 0)
-        {
-            //if a wave isn't running, checks if the player still has coins and if there is a wave currently being spawned, then tells the game its time to change scenes if both aren't the case
-            if (Coins <= 0 && Wave_Starting == 0)
-            {
-                Debug.Log("Zero Coins!");
-                Wave_Started = 2;
-            }
-        }
-        if (Wave_Started == 2 && Wave_Starting == 0)
-        {
-            //checks if this has already been run, and if it hasn't runs StartWave
-            Wave_Starting = 1;
-            StartWave();
         }
     }
 

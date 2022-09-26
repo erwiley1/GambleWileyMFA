@@ -10,6 +10,7 @@ public class Patterns
     public Sprite[] image = new Sprite[3];
     Vector3 placeHolder;
     public int coin;
+
     public Patterns(Sprite[] spirt)
     {
         int random = Random.Range(0, 1001);
