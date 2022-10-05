@@ -92,16 +92,7 @@ public class Grunt_Movement_AI : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            if (animator.GetBool("G_isAttack") == false)
-            {
-                animator.SetBool("G_isAttack", true);
-            }
-        }
-    }
+   
 
     void G_StopAttack()
     {
