@@ -30,7 +30,7 @@ public class wave_manager : MonoBehaviour
     {
         //will clear current modifiers, increase the current wave number, then load the gambling scene
         Current_Wave++;
-        this.gameObject.GetComponent<modifiers>().reset_modifiers();
+        this.gameObject.GetComponent<modifiers>().Reset_modifiers();
         Debug.Log("Wave Ended!");
         SceneManager.LoadScene("Gamble scene");
     }

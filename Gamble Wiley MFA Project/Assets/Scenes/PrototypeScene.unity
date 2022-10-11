@@ -201,8 +201,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe821c9a77930f48959783fc5be2a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  default_speed: 1
-  current_speed: 1
+  default_enemy_speed: 1
+  current_enemy_speed: 1
+  default_enemy_damage: 1
+  current_enemy_damage: 1
+  default_enemy_attack_speed: 1
+  current_enemy_attack_speed: 1
+  default_player_speed: 1
+  current_player_speed: 1
+  default_player_attack_speed: 1
+  current_player_attack_speed: 1
+  default_player_damage: 1
+  current_player_damage: 1
 --- !u!1 &119366345
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,24 +22,25 @@ public class Patterns
     {
         //to add a new result, add it as a function on modifiers and call it during the roll's result
         Start();
-        int random = Random.Range(0, 1001);
-        if (random == 1) { placeHolder = new Vector3(0, 0, 0); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 2 && random <= 50) { placeHolder = new Vector3(1, 1, 1); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 51 && random <= 100) { placeHolder = new Vector3(2, 2, 2); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 101 && random <= 250) { placeHolder = new Vector3(3, 3, 3); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 251 && random <= 400) { placeHolder = new Vector3(4, 4, 4); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 401 && random <= 450) { placeHolder = new Vector3(1, 2, 1); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 451 && random <= 500) { placeHolder = new Vector3(4, 2, 3); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 501 && random <= 550) { placeHolder = new Vector3(1, 2, 3); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 551 && random <= 600) { placeHolder = new Vector3(3, 2, 3); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 601 && random <= 650) { placeHolder = new Vector3(2, 2, 3); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 651 && random <= 700) { placeHolder = new Vector3(1, 4, 3); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 701 && random <= 750) { placeHolder = new Vector3(2, 3, 4); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 751 && random <= 800) { placeHolder = new Vector3(3, 3, 4); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 801 && random <= 850) { placeHolder = new Vector3(3, 4, 1); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 851 && random <= 900) { placeHolder = new Vector3(4, 2, 4); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 901 && random <= 950) { placeHolder = new Vector3(4, 3, 4); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
-        else if (random >= 951 && random <= 1000) { placeHolder = new Vector3(2, 3, 2); modifiers.GetComponent<modifiers>().double_enemy_speed(); }
+        int random = Random.Range(1, 1001); // (1, 1001) for all results, (1,1) and change the (1) result to test a specific outcome
+        Debug.Log(random);
+        if (random >= 1 && random <= 166) { placeHolder = new Vector3(0, 0, 0); modifiers.GetComponent<modifiers>().Increase_player_damage(); }
+        else if (random >= 167 && random <= 332) { placeHolder = new Vector3(1, 1, 1); modifiers.GetComponent<modifiers>().Increase_player_speed(); }
+        else if (random >= 333 && random <= 498) { placeHolder = new Vector3(2, 2, 2); modifiers.GetComponent<modifiers>().Increase_player_attack_speed(); }
+        else if (random >= 499 && random <= 664) { placeHolder = new Vector3(3, 3, 3); modifiers.GetComponent<modifiers>().Increase_enemy_damage(); }
+        else if (random >= 665 && random <= 830) { placeHolder = new Vector3(4, 4, 4); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        else if (random >= 831 && random <= 1000) { placeHolder = new Vector3(1, 2, 1); modifiers.GetComponent<modifiers>().Increase_enemy_attack_speed(); }
+        //else if (random >= 997 && random <= 1000) { placeHolder = new Vector3(4, 2, 3); modifiers.GetComponent<modifiers>().Increase_player_damage(); }
+        //else if (random >= 501 && random <= 550) { placeHolder = new Vector3(1, 2, 3); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 551 && random <= 600) { placeHolder = new Vector3(3, 2, 3); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 601 && random <= 650) { placeHolder = new Vector3(2, 2, 3); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 651 && random <= 700) { placeHolder = new Vector3(1, 4, 3); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 701 && random <= 750) { placeHolder = new Vector3(2, 3, 4); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 751 && random <= 800) { placeHolder = new Vector3(3, 3, 4); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 801 && random <= 850) { placeHolder = new Vector3(3, 4, 1); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 851 && random <= 900) { placeHolder = new Vector3(4, 2, 4); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 901 && random <= 950) { placeHolder = new Vector3(4, 3, 4); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
+        //else if (random >= 951 && random <= 1000) { placeHolder = new Vector3(2, 3, 2); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
         for (int i = 0; i < 3; i++)
         {
             image[i] = spirt[(int)placeHolder[i]];

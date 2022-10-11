@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 193837139394435332}
   - component: {fileID: 6867502898709387459}
   - component: {fileID: 193837139394435339}
-  - component: {fileID: 193837139394435333}
   - component: {fileID: 9098926151994834940}
   m_Layer: 0
   m_Name: Player
@@ -198,6 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 193837139394435328}
+  attack_damage: 1
+  attack_speed: 1
   moveSpeed: 5
   moveSpeedMod: 1
   rb: {fileID: 193837139394435338}
@@ -205,20 +206,6 @@ MonoBehaviour:
   bulletSpeed: 8
   bulletSpeedMod: 1
   fireDelay: 0.5
---- !u!114 &193837139394435333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278827726405504270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76fd000730b2aef40865448372f10ade, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SlotUI: {fileID: 0}
-  PlayerMovement: {fileID: 193837139394435339}
 --- !u!114 &9098926151994834940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: e668fd0fd7ab5a34f9f2837546f4cdfc, type: 2}
+  hitDelay: 0
 --- !u!1 &4637078428843558790
 GameObject:
   m_ObjectHideFlags: 0
