@@ -7,7 +7,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
-
+    
+    public int attack_damage = 1; //currently unused, will be used to determine how much damage the attacks do
+    public int attack_speed = 1; //currently unused, will be used to determine how fast the player attacks
+    
     // variables for movement
     public float moveSpeed; // declaring but not defining allows us to tweak player momvement speed in inspector
     public float moveSpeedMod = 1;
@@ -23,6 +26,16 @@ public class PlayerMovement : MonoBehaviour
     private float lastFire;
     private bool rangedWeapon = true;
     private Vector2 moveDirection; // Vector2 accounts for movement along 2 axes in a plane
+    private GameObject modifiers; // used for modifier application
+
+    
+    private void Awake()
+    {
+        modifiers = GameObject.FindGameObjectWithTag("Modifier Manager");
+        moveSpeedMod *= modifiers.GetComponent<modifiers>().current_player_speed;
+        attack_damage *= modifiers.GetComponent<modifiers>().current_player_damage;
+        attack_speed *= modifiers.GetComponent<modifiers>().current_player_attack_speed;
+    }
 
     void Update() 
     {
