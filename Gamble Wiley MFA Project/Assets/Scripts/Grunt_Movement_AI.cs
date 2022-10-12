@@ -92,13 +92,6 @@ public class Grunt_Movement_AI : MonoBehaviour
         }
     }
 
-   
-
-    void G_StopAttack()
-    {
-        if (animator.GetBool("G_isAttack")) { animator.SetBool("G_isAttack", false); }
-    }
-
     void KillGrunt()
     {
         Instantiate(coinPrefab, transform.position, transform.rotation);

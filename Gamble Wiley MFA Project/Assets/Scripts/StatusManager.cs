@@ -4,34 +4,28 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
-    public Health playerHealth;
-    public int hitDelay;
-    private bool isDamaged = false;
+    [SerializeField] private float startingHealth;
+    public float currentHealth { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        playerHealth.health = playerHealth.maxHealth;
+        currentHealth = startingHealth;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void TakeDamage(float _damage)
     {
-        if (collision.tag == "Enemy")
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+
+        if (currentHealth > 0)
         {
-            if (!isDamaged)
-            {
-                isDamaged = true;
-                this.playerHealth.health -= 10;
-                if (playerHealth.health <= 0)
-                {
-                    Destroy(this.gameObject);
-                }
-                Invoke("resetDamage", hitDelay);
-            }
+            //player hurt
+        }
+        else
+        {
+            //player dead 
         }
     }
-
-    void resetDamage()
+    private void Update()
     {
-        isDamaged = false;
+        
     }
 }
