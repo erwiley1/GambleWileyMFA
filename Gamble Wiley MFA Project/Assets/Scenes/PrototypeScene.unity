@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1128132097700297297, guid: 05271dc295eef7f45900554a65d08624, type: 3}
+      propertyPath: Current_Wave
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128132097700297297, guid: 05271dc295eef7f45900554a65d08624, type: 3}
       propertyPath: Wave_Started
       value: 1
       objectReference: {fileID: 0}
@@ -72950,5 +72954,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5025117670940149215, guid: 1b097fb4366e78f4bbb377d55bb32d3d, type: 3}
+      propertyPath: Triggerman
+      value: 
+      objectReference: {fileID: 6268721513354136001, guid: f118775a7f34ebe4a8182b05c7ea8c03, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b097fb4366e78f4bbb377d55bb32d3d, type: 3}

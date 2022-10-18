@@ -29,6 +29,11 @@ public class wave_manager : MonoBehaviour
     public void EndWave()
     {
         //will clear current modifiers, increase the current wave number, then load the gambling scene
+        if(Current_Wave == 10) //wave 10 is the final wave, so when all the enemies are defeated during the final wave the game should end
+        {
+            Debug.Log("Game Won!");
+            return;
+        }
         Current_Wave++;
         this.gameObject.GetComponent<modifiers>().Reset_modifiers();
         Debug.Log("Wave Ended!");

@@ -23,7 +23,6 @@ public class Patterns
         //to add a new result, add it as a function on modifiers and call it during the roll's result
         Start();
         int random = Random.Range(1, 1001); // (1, 1001) for all results, (1,1) and change the (1) result to test a specific outcome
-        Debug.Log(random);
         if (random >= 1 && random <= 166) { placeHolder = new Vector3(0, 0, 0); modifiers.GetComponent<modifiers>().Increase_player_damage(); }
         else if (random >= 167 && random <= 332) { placeHolder = new Vector3(1, 1, 1); modifiers.GetComponent<modifiers>().Increase_player_speed(); }
         else if (random >= 333 && random <= 498) { placeHolder = new Vector3(2, 2, 2); modifiers.GetComponent<modifiers>().Increase_player_attack_speed(); }
