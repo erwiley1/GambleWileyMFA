@@ -56,8 +56,8 @@ public class attack : MonoBehaviour
 
     private void DamagePlayer()
     {
-     if (PlayerInSight())
-     playerHealth.TakeDamage(damage);
+  //   if (PlayerInSight())
+  //   playerHealth.TakeDamage(damage);
         
     }
 
