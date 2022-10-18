@@ -19,7 +19,7 @@ public class Grunt_Movement_AI : MonoBehaviour
 
     private void Awake() //applies the modifiers when this character is spawned
     {
-        spawn_location = Random.Range(1, 5);
+        spawn_location = Random.Range(1, 5); //randomly moves the enemy to one of four preset spawning locations
         switch(spawn_location)
         {
             case 1:
