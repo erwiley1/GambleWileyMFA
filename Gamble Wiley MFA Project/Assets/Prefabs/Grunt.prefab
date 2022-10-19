@@ -151,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24, y: 0.64}
+  m_Size: {x: 0.15, y: 0.57}
   m_EdgeRadius: 0
 --- !u!61 &3518959975043697938
 BoxCollider2D:
@@ -177,7 +177,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.26, y: 0.66}
+  m_Size: {x: 0.14, y: 0.57}
   m_EdgeRadius: 0
 --- !u!114 &8155591804993477432
 MonoBehaviour:
@@ -195,3 +195,5 @@ MonoBehaviour:
   animator: {fileID: 6268721513354135613}
   speed: 3
   coinPrefab: {fileID: 8681354555449924704, guid: 7ba215d3ca3591e439a0705d495d1a8e, type: 3}
+  attack_damage: 0
+  attack_speed: 0
