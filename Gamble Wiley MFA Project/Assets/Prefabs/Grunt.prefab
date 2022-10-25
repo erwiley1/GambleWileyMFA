@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6268721513354135612}
   - component: {fileID: 6268721513354136003}
   - component: {fileID: 3518959975043697938}
+  - component: {fileID: 4778598489249285957}
   - component: {fileID: 8155591804993477432}
   m_Layer: 0
   m_Name: Grunt
@@ -179,6 +180,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14, y: 0.57}
   m_EdgeRadius: 0
+--- !u!195 &4778598489249285957
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268721513354136001}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.32
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.64
+  m_BaseOffset: 0.32
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &8155591804993477432
 MonoBehaviour:
   m_ObjectHideFlags: 0
