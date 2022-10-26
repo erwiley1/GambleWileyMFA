@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeedMod *= modifiers.GetComponent<modifiers>().current_player_speed;
         attack_damage *= modifiers.GetComponent<modifiers>().current_player_damage;
         attack_speed *= modifiers.GetComponent<modifiers>().current_player_attack_speed;
+        fireDelay /= attack_speed;
     }
 
     void Update() 
