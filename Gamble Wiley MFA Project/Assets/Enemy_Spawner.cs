@@ -9,6 +9,7 @@ public class Enemy_Spawner : MonoBehaviour
     public GameObject Wave_Manager;
     public int Current_Wave; 
     public GameObject Grunt;
+    public GameObject Triggerman;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +17,27 @@ public class Enemy_Spawner : MonoBehaviour
         Wave_Manager = GameObject.FindGameObjectWithTag("Modifier Manager");
         Current_Wave = Wave_Manager.GetComponent<wave_manager>().Current_Wave;
         Debug.Log(Current_Wave);
-        for (int i = 0; i < Current_Wave; i++)
+        StartCoroutine(SpawnEnemies());
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        for (int i = 0; i < (Current_Wave * 5); i++)
         {
-            Debug.Log("Spawning Enemy!");
-            Instantiate(Grunt, new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
+            Debug.Log("Spawning Grunt!");
+            Instantiate(Grunt, new Vector3(5, 5, 0), Quaternion.identity);
             Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
+            yield return new WaitForSecondsRealtime(1); //adjust this number to alter the spawn delay in real time
+        }
+        if (Current_Wave >= 5)
+        {
+            for(int i = 0; i < ((Current_Wave -5) * 5); i++)
+            {
+                Debug.Log("Spawning Triggerman!");
+                Instantiate(Triggerman, new Vector3(5, 5, 0), Quaternion.identity);
+                Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
+                yield return new WaitForSecondsRealtime(1); //adjust this number to alter the spawn delay in real time
+            }
         }
     }
 }
