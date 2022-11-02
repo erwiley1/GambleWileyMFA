@@ -42,7 +42,7 @@ public class Grunt_Movement_AI : MonoBehaviour
     void Update()
     {
         target = GameObject.FindWithTag("Player").transform;
-
+        
         if (!animator.GetBool("G_isDead") && target != null) // if G_isDead is false and the player has a position somewhere on the board, then we can do things
         {
             playerPos = new Vector2(target.localPosition.x, target.localPosition.y); // determines position of the player
