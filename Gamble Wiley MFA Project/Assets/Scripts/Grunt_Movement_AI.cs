@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Grunt_Movement_AI : MonoBehaviour
 {
@@ -11,9 +12,19 @@ public class Grunt_Movement_AI : MonoBehaviour
     public int attack_damage; //currently unused, will be used to determine how much damage the attacks do
     public int attack_speed; //currently unused, will be used to determine how fast the enemies attack
 
+
     Vector2 playerPos, enemyPos;
 
     private GameObject modifiers; // used for modifier application
+
+    NavMeshAgent agent;
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+    }
+
 
     private void Awake() //applies the modifiers when this character is spawned
     {
@@ -27,10 +38,11 @@ public class Grunt_Movement_AI : MonoBehaviour
         attack_speed *= modifiers.GetComponent<modifiers>().current_enemy_attack_speed;
     }
 
+
     void Update()
     {
         target = GameObject.FindWithTag("Player").transform;
-
+        
         if (!animator.GetBool("G_isDead") && target != null) // if G_isDead is false and the player has a position somewhere on the board, then we can do things
         {
             playerPos = new Vector2(target.localPosition.x, target.localPosition.y); // determines position of the player
@@ -129,4 +141,7 @@ public class Grunt_Movement_AI : MonoBehaviour
         Instantiate(coinPrefab, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
+
+
+
 }
