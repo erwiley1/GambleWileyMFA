@@ -7,6 +7,7 @@ public class StatusManager : MonoBehaviour
     public Health playerHealth;
     public int hitDelay;
     private bool isDamaged = false;
+    private int damage;
 
     private void Start()
     {
@@ -20,7 +21,8 @@ public class StatusManager : MonoBehaviour
             if (!isDamaged)
             {
                 isDamaged = true;
-                this.playerHealth.health -= 10;
+                damage = collision.GetComponent<damage>().attack_damage;
+                this.playerHealth.health -= damage;
                 if (playerHealth.health <= 0)
                 {
                     Destroy(this.gameObject);

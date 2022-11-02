@@ -81,6 +81,7 @@ public class NewGamble : MonoBehaviour
         CoinText.text = Coins.ToString();
         WaveManager = GameObject.FindGameObjectWithTag("Modifier Manager");
         Coins = WaveManager.GetComponent<wave_manager>().Coins;
+        CoinText.text = Coins.ToString();
     }
 
     // Update is called once per frame

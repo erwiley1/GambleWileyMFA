@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: e668fd0fd7ab5a34f9f2837546f4cdfc, type: 2}
-  hitDelay: 0
+  hitDelay: 1
 --- !u!1 &4637078428843558790
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 193837139394435328}
+  damage: 1
+  player: {fileID: 278827726405504270}
 --- !u!1 &7575899370579969526
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 193837139394435328}
+  damage: 1
+  player: {fileID: 278827726405504270}
 --- !u!1 &7653545524826846719
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +437,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 193837139394435328}
+  damage: 1
+  player: {fileID: 278827726405504270}
 --- !u!1 &8474294825318369325
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,3 +510,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 193837139394435328}
+  damage: 1
+  player: {fileID: 278827726405504270}
