@@ -400,6 +400,7 @@ MonoBehaviour:
   animator: {fileID: 6268721513354135613}
   speed: 3
   coinPrefab: {fileID: 8681354555449924704, guid: 7ba215d3ca3591e439a0705d495d1a8e, type: 3}
+  attack_damage: 0
   attack_speed: 0
 --- !u!114 &5887487873497979215
 MonoBehaviour:
@@ -443,7 +444,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
