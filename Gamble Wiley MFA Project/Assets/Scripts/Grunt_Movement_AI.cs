@@ -45,7 +45,8 @@ public class Grunt_Movement_AI : MonoBehaviour
         
         if (!animator.GetBool("G_isDead") && target != null) // if G_isDead is false and the player has a position somewhere on the board, then we can do things
         {
-            playerPos = new Vector2(target.localPosition.x, target.localPosition.y); // determines position of the player
+            agent.SetDestination(target.position);
+            playerPos =  // determines position of the player
             enemyPos = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y); // determines position of the grunt
             
             if (animator.GetBool("G_isAttack"))
