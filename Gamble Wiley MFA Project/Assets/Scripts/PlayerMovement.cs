@@ -79,15 +79,19 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        if (animator.GetBool("isAttack") == true)
-        {
-            rb.velocity = Vector2.zero; // freezes player in place while melee attacking
-        }
-        else
-        {
+        //if (animator.GetBool("isAttack") == true)
+        //{
+        //    rb.velocity = Vector2.zero; // freezes player in place while melee attacking
+        //}
+        //else if (animator.GetBool("tommygun_attack") == true)
+        //{
+        //    rb.velocity = Vector2.zero; // freezes player in place while tommy gun attacking
+        //}
+        //else
+        //{
             rb.velocity = new Vector2(moveDirection.x * moveSpeed * moveSpeedMod, moveDirection.y * moveSpeed * moveSpeedMod);
             // takes direction from Update, moves player in that direction based on moveSpeed value
-        }
+        //}
     }
     
     void Shoot(float x, float y)
@@ -100,6 +104,9 @@ public class PlayerMovement : MonoBehaviour
                 (x < 0) ? Mathf.Floor(x) * bulletSpeed * bulletSpeedMod : Mathf.Ceil(x) * bulletSpeed * bulletSpeedMod,
                 (y < 0) ? Mathf.Floor(y) * bulletSpeed * bulletSpeedMod : Mathf.Ceil(y) * bulletSpeed * bulletSpeedMod
                 ); // moves the bullet
+            animator.SetBool("tommygun_attack", true);
+            animator.SetFloat("horizontalaim", x);
+            animator.SetFloat("verticalaim", y);
         }
         else
         {
@@ -110,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
     void StopAttack()
     {
         if (animator.GetBool("isAttack")) { animator.SetBool("isAttack", false); }
+        if (animator.GetBool("tommygun_attack")) { animator.SetBool("tommygun_attack", false); }
+
         // returns character to idle state after attacking
     }
 
