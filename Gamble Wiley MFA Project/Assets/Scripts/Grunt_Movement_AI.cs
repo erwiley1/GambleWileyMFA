@@ -117,7 +117,7 @@ public class Grunt_Movement_AI : MonoBehaviour
 
         if (animator.GetBool("G_isDead"))
         {
-            KillGrunt();
+            KillEnemy();
         }
     }
 
@@ -137,7 +137,7 @@ public class Grunt_Movement_AI : MonoBehaviour
         if (animator.GetBool("G_isAttack")) { animator.SetBool("G_isAttack", false); }
     }
 
-    void KillGrunt()
+    void KillEnemy()
     {
         Instantiate(coinPrefab, transform.position, transform.rotation);
         Destroy(this.gameObject);

@@ -7,7 +7,8 @@ public class health_display : MonoBehaviour
 {
     private GameObject player;
     public int health;
-    public Text number;
+    public Sprite[] health_array;
+    public Image health_display_image;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class health_display : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health = player.GetComponent<StatusManager>().playerHealth.health;
-        number.text = health.ToString();
+        health = player.GetComponent<StatusManager>().playerHealth.health - 1;
+        health_display_image.sprite = health_array[health];
     }
 }
