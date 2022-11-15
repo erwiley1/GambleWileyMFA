@@ -11,10 +11,12 @@ public class Patterns
     public Sprite[] image = new Sprite[3];
     Vector3 placeHolder;
     public int coin;
+    public GameObject result;
 
     private void Start() //this start doesnt call on start because /shrug so i called it during the rolling process
     {
         modifiers = GameObject.FindGameObjectWithTag("Modifier Manager");
+        result = GameObject.FindGameObjectWithTag("result");
         Debug.Log("Modifiers found! - NewGamble");
     }
 
@@ -23,12 +25,12 @@ public class Patterns
         //to add a new result, add it as a function on modifiers and call it during the roll's result
         Start();
         int random = Random.Range(1, 1001); // (1, 1001) for all results, (1,1) and change the (1) result to test a specific outcome
-        if (random >= 1 && random <= 166) { placeHolder = new Vector3(0, 0, 0); modifiers.GetComponent<modifiers>().Increase_player_damage(); }
-        else if (random >= 167 && random <= 332) { placeHolder = new Vector3(1, 1, 1); modifiers.GetComponent<modifiers>().Increase_player_speed(); }
-        else if (random >= 333 && random <= 498) { placeHolder = new Vector3(2, 2, 2); modifiers.GetComponent<modifiers>().Increase_player_attack_speed(); }
-        else if (random >= 499 && random <= 664) { placeHolder = new Vector3(3, 3, 3); modifiers.GetComponent<modifiers>().Increase_enemy_damage(); }
-        else if (random >= 665 && random <= 830) { placeHolder = new Vector3(4, 4, 4); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
-        else if (random >= 831 && random <= 1000) { placeHolder = new Vector3(1, 2, 1); modifiers.GetComponent<modifiers>().Increase_enemy_attack_speed(); }
+        if (random >= 1 && random <= 166) { placeHolder = new Vector3(0, 0, 0); modifiers.GetComponent<modifiers>().Increase_player_damage(); result.GetComponent<Text>().text = "Player Damage Rises";  }
+        else if (random >= 167 && random <= 332) { placeHolder = new Vector3(1, 1, 1); modifiers.GetComponent<modifiers>().Increase_player_speed(); result.GetComponent<Text>().text = "Player Speed Swiftens"; }
+        else if (random >= 333 && random <= 498) { placeHolder = new Vector3(2, 2, 2); modifiers.GetComponent<modifiers>().Increase_player_attack_speed(); result.GetComponent<Text>().text = "Player Attacks Hasten"; }
+        else if (random >= 499 && random <= 664) { placeHolder = new Vector3(3, 3, 3); modifiers.GetComponent<modifiers>().Increase_enemy_damage(); result.GetComponent<Text>().text = "Enemy Damage Rises"; }
+        else if (random >= 665 && random <= 830) { placeHolder = new Vector3(4, 4, 4); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); result.GetComponent<Text>().text = "Enemy Speed Swiftens"; }
+        else if (random >= 831 && random <= 1000) { placeHolder = new Vector3(1, 2, 1); modifiers.GetComponent<modifiers>().Increase_enemy_attack_speed(); result.GetComponent<Text>().text = "Enemy Attacks Hasten"; }
         //else if (random >= 997 && random <= 1000) { placeHolder = new Vector3(4, 2, 3); modifiers.GetComponent<modifiers>().Increase_player_damage(); }
         //else if (random >= 501 && random <= 550) { placeHolder = new Vector3(1, 2, 3); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }
         //else if (random >= 551 && random <= 600) { placeHolder = new Vector3(3, 2, 3); modifiers.GetComponent<modifiers>().Increase_enemy_speed(); }

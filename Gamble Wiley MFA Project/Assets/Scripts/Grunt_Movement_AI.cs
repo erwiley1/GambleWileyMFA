@@ -11,7 +11,7 @@ public class Grunt_Movement_AI : MonoBehaviour
     public GameObject coinPrefab;
     public int attack_damage; //currently unused, will be used to determine how much damage the attacks do
     public int attack_speed; //currently unused, will be used to determine how fast the enemies attack
-
+    private int spawn_location = 0;
 
     Vector2 playerPos, enemyPos;
 
@@ -28,6 +28,25 @@ public class Grunt_Movement_AI : MonoBehaviour
 
     private void Awake() //applies the modifiers when this character is spawned
     {
+        spawn_location = Random.Range(1, 4); //randomly moves the enemy to one of four preset spawning locations
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        switch (spawn_location)
+        {
+            case 1:
+                transform.position = new Vector3(-40, 17, 0);
+                break;
+            case 2:
+                transform.position = new Vector3(40, 17, 0);
+                break;
+            case 3:
+                transform.position = new Vector3(-27, -18, 0);
+                break;
+            case 4:
+                transform.position = new Vector3(25, -17, 0);
+                break;
+            default:
+                break;
+        }
         attack_damage = 1; //for some reason i was experiencing a bug where these guys instantiated with 0 attack damage and attack speed and this fixed it
         attack_speed = 1;
         Debug.Log(attack_damage);

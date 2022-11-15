@@ -9,6 +9,7 @@ TagManager:
   - Modifier Manager
   - Enemy Spawner
   - Coin
+  - result
   layers:
   - Default
   - TransparentFX
