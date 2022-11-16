@@ -24,8 +24,13 @@ public class reset_game : MonoBehaviour
         }
         if (GetComponent<Text>().enabled && Input.anyKeyDown)
         {
-            Destroy(GameObject.FindGameObjectWithTag("Modifier Manager"));
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            reset_the_game();
         }    
+    }
+    public void reset_the_game()
+    {
+        Destroy(GameObject.FindGameObjectWithTag("Modifier Manager"));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 }

@@ -29,7 +29,6 @@ public class Grunt_Movement_AI : MonoBehaviour
     private void Awake() //applies the modifiers when this character is spawned
     {
         spawn_location = Random.Range(1, 4); //randomly moves the enemy to one of four preset spawning locations
-        transform.eulerAngles = new Vector3(0, 0, 0);
         switch (spawn_location)
         {
             case 1:
@@ -61,7 +60,7 @@ public class Grunt_Movement_AI : MonoBehaviour
     void Update()
     {
         target = GameObject.FindWithTag("Player").transform;
-        
+        transform.eulerAngles = new Vector3(0, 0, 0);
         if (!animator.GetBool("G_isDead") && target != null) // if G_isDead is false and the player has a position somewhere on the board, then we can do things
         {
             agent.SetDestination(target.position);

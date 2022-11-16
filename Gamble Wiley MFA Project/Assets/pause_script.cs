@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class pause_script : MonoBehaviour
 {
     public Text paused;
+    public Button reset;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +23,12 @@ public class pause_script : MonoBehaviour
     {
         Time.timeScale = 0;
         paused.enabled = true;
+        reset.gameObject.SetActive(true);
     }
     void Resume_gameplay()
     {
         Time.timeScale = 1;
         paused.enabled = false;
+        reset.gameObject.SetActive(false);
     }
 }
