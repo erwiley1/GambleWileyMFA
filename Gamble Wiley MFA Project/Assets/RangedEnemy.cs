@@ -21,6 +21,7 @@ public class RangedEnemy : MonoBehaviour
 
     private void Update()
     {
+    // this is the part thats a problem. 
         Vector3 differance = player.position - gun.transform.position;
         float rotZ = Mathf.Atan2(differance.x, differance.y) * Mathf.Rad2Deg;
         gun.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
