@@ -19,12 +19,17 @@ public class RangedEnemy : MonoBehaviour
     private float timeBtwnShots;
 
 
-    private void Update()
+    void Update()
     {
     // this is the part thats a problem. 
-        Vector3 differance = player.position - gun.transform.position;
-        float rotZ = Mathf.Atan2(differance.x, differance.y) * Mathf.Rad2Deg;
-        gun.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        
+        
+            Vector3 differance = player.position - gun.transform.position;
+            float rotZ = Mathf.Atan2(differance.y, differance.x) * Mathf.Rad2Deg - 0f;
+            Quaternion q = Quaternion.AngleAxis(rotZ, Vector3.forward);
+            gun.transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 0 * Time.deltaTime);
+        
+
 
         if (Vector2.Distance(transform.position, player.position) < followPlayerRanged && Vector2.Distance(transform.position, player.position) > attackRange)
         {
@@ -34,6 +39,8 @@ public class RangedEnemy : MonoBehaviour
         {
             inRange = false;
         }
+
+
 
         if (Vector2.Distance(transform.position, player.position) <= attackRange)
         {
@@ -51,6 +58,8 @@ public class RangedEnemy : MonoBehaviour
 
     }
 
+
+
     void FixedUpdate()
     {
      if (inRange) 
@@ -58,6 +67,8 @@ public class RangedEnemy : MonoBehaviour
          transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
         }   
     }
+
+
 
     private void OnDrawGizmos()
     {
