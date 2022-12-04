@@ -24,10 +24,10 @@ public class RangedEnemy : MonoBehaviour
     // this is the part thats a problem. 
         
         
-            Vector3 differance = player.position - gun.transform.position;
+            Vector3 differance = player.position - transform.position;
             float rotZ = Mathf.Atan2(differance.y, differance.x) * Mathf.Rad2Deg - 0f;
             Quaternion q = Quaternion.AngleAxis(rotZ, Vector3.forward);
-            gun.transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 0 * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 0 * Time.deltaTime);
         
 
 
