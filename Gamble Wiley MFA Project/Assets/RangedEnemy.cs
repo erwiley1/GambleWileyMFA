@@ -46,8 +46,10 @@ public class RangedEnemy : MonoBehaviour
         {
             if(timeBtwnShots <= 0)
             {
-                Instantiate(EnemyProjectile, shotPoint.position, shotPoint.transform.rotation);
+                GameObject bullet = Instantiate(EnemyProjectile, shotPoint.position, shotPoint.transform.rotation);
                 timeBtwnShots = startTimeBtwnShots;
+              
+                
 
             }
             else
