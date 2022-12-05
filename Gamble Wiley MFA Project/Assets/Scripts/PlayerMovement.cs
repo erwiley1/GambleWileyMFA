@@ -24,10 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     // private variables
     private float lastFire;
-    private bool rangedWeapon = true;
     private Vector2 moveDirection; // Vector2 accounts for movement along 2 axes in a plane
     private GameObject modifiers; // used for modifier application
 
+    public bool tommygun = true;
+    public bool shotgun = false;
     
     private void Awake()
     {
@@ -72,6 +73,22 @@ public class PlayerMovement : MonoBehaviour
             lastFire = Time.time;
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if(tommygun == true && shotgun == false)
+            {
+                tommygun = false;
+                shotgun = true;
+                fireDelay *= 2;
+            }
+            else if (tommygun == false && shotgun == true)
+            {
+                tommygun = true;
+                shotgun = false;
+                fireDelay /= 2;
+            }
+        }
+
         moveDirection = new Vector2(moveX, moveY).normalized; /* converts input into direction
         for diagonal movement, instead of speed being a factor of X and Y movement speeds, will be limited to normal speed;
         without '.normalized', there's some Pythagorean shit going on */
@@ -96,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Shoot(float x, float y)
     {
-        if (rangedWeapon == true)
+        if (tommygun == true)
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject; // makes a bullet
             bullet.AddComponent<Rigidbody2D>().gravityScale = 0; // gives the bullet 0 gravity
@@ -105,6 +122,18 @@ public class PlayerMovement : MonoBehaviour
                 (y < 0) ? Mathf.Floor(y) * bulletSpeed * bulletSpeedMod : Mathf.Ceil(y) * bulletSpeed * bulletSpeedMod
                 ); // moves the bullet
             animator.SetBool("tommygun_attack", true);
+            animator.SetFloat("horizontalaim", x);
+            animator.SetFloat("verticalaim", y);
+        }
+        else if (shotgun == true)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject; // makes a bullet
+            bullet.AddComponent<Rigidbody2D>().gravityScale = 0; // gives the bullet 0 gravity
+            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(
+                (x < 0) ? Mathf.Floor(x) * (bulletSpeed/2) * bulletSpeedMod : Mathf.Ceil(x) * (bulletSpeed/2) * bulletSpeedMod,
+                (y < 0) ? Mathf.Floor(y) * (bulletSpeed/2) * bulletSpeedMod : Mathf.Ceil(y) * (bulletSpeed/2) * bulletSpeedMod
+                ); // moves the bullet
+            animator.SetBool("shotgun_attack", true);
             animator.SetFloat("horizontalaim", x);
             animator.SetFloat("verticalaim", y);
         }
@@ -118,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (animator.GetBool("isAttack")) { animator.SetBool("isAttack", false); }
         if (animator.GetBool("tommygun_attack")) { animator.SetBool("tommygun_attack", false); }
-
+        if (animator.GetBool("shotgun_attack")) { animator.SetBool("shotgun_attack", false); }
         // returns character to idle state after attacking
     }
 

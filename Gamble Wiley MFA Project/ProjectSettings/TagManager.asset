@@ -10,6 +10,7 @@ TagManager:
   - Enemy Spawner
   - Coin
   - result
+  - victory
   layers:
   - Default
   - TransparentFX

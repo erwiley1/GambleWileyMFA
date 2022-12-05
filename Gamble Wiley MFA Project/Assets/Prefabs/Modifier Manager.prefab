@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4904960004049051862}
   - component: {fileID: 1128132097700297297}
   - component: {fileID: 31554165}
+  - component: {fileID: 1256186823394821200}
+  - component: {fileID: 8249745051021579087}
   m_Layer: 0
   m_Name: Modifier Manager
   m_TagString: Modifier Manager
@@ -48,7 +50,56 @@ MonoBehaviour:
   Enemies: 0
   Coins: 0
   Coins_on_ground: 0
+  victory_screen: {fileID: 0}
 --- !u!114 &31554165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955569775331557113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe821c9a77930f48959783fc5be2a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  default_enemy_speed: 1
+  current_enemy_speed: 1
+  default_enemy_damage: 1
+  current_enemy_damage: 1
+  default_enemy_attack_speed: 1
+  current_enemy_attack_speed: 1
+  default_player_speed: 1
+  current_player_speed: 1
+  default_player_attack_speed: 1
+  current_player_attack_speed: 1
+  default_player_damage: 1
+  current_player_damage: 1
+--- !u!114 &1256186823394821200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955569775331557113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe821c9a77930f48959783fc5be2a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  default_enemy_speed: 1
+  current_enemy_speed: 1
+  default_enemy_damage: 1
+  current_enemy_damage: 1
+  default_enemy_attack_speed: 1
+  current_enemy_attack_speed: 1
+  default_player_speed: 1
+  current_player_speed: 1
+  default_player_attack_speed: 1
+  current_player_attack_speed: 1
+  default_player_damage: 1
+  current_player_damage: 1
+--- !u!114 &8249745051021579087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

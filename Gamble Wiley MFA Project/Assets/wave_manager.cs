@@ -14,6 +14,7 @@ public class wave_manager : MonoBehaviour
     public int Coins;
     public int Coins_on_ground;
     private static GameObject instance;
+    public GameObject victory_screen;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,8 @@ public class wave_manager : MonoBehaviour
         //will clear current modifiers, increase the current wave number, then load the gambling scene
         if(Current_Wave == 10) //wave 10 is the final wave, so when all the enemies are defeated during the final wave the game should end
         {
-            Debug.Log("Game Won!");
+            victory_screen = GameObject.FindGameObjectWithTag("victory");
+            victory_screen.GetComponent<victory>().End_Game();
             return;
         }
         Current_Wave++;
@@ -53,7 +55,7 @@ public class wave_manager : MonoBehaviour
     public void UpdateCoins(int x)
     {
         //changes the current coin amount. called by other scripts to update coin amount
-        Coins = Coins + x;
+        Coins += x;
     }
 
     public void EnemyCheck()

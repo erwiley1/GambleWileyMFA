@@ -15,8 +15,8 @@ public class BulletController : MonoBehaviour
         damage = 1;
         player = GameObject.FindGameObjectWithTag("Player");
         damage *= player.GetComponent<PlayerMovement>().attack_damage;
+        if (player.GetComponent<PlayerMovement>().shotgun == true) { damage *= 2; }
         StartCoroutine(DeathDelay());
-
     }
     
     void OnTriggerStay2D(Collider2D collision)
@@ -24,6 +24,7 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<enemy_health>().take_damage(damage); //runs the "take_damage" function on the enemy, with your damage value being sent as the amount of damage
+            Destroy(gameObject);
         }
     }
     

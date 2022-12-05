@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1128132097700297297, guid: 05271dc295eef7f45900554a65d08624, type: 3}
-      propertyPath: Wave_Started
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4904960004049051862, guid: 05271dc295eef7f45900554a65d08624, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -184,35 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05271dc295eef7f45900554a65d08624, type: 3}
---- !u!1 &31554164 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6955569775331557113, guid: 05271dc295eef7f45900554a65d08624, type: 3}
-  m_PrefabInstance: {fileID: 31554163}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &31554165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31554164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe821c9a77930f48959783fc5be2a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  default_enemy_speed: 1
-  current_enemy_speed: 1
-  default_enemy_damage: 1
-  current_enemy_damage: 1
-  default_enemy_attack_speed: 1
-  current_enemy_attack_speed: 1
-  default_player_speed: 1
-  current_player_speed: 1
-  default_player_attack_speed: 1
-  current_player_attack_speed: 1
-  default_player_damage: 1
-  current_player_damage: 1
 --- !u!1 &119366345
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,18 +478,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1048775631, guid: a43415f54420a45469fe7d97f84af1d6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048775634, guid: a43415f54420a45469fe7d97f84af1d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048775635, guid: a43415f54420a45469fe7d97f84af1d6, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8277581854471354006, guid: a43415f54420a45469fe7d97f84af1d6, type: 3}
       propertyPath: m_RootOrder
       value: 4
