@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class reset_game : MonoBehaviour
 {
     private GameObject player;
-    
+    public Button reset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +21,9 @@ public class reset_game : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if(player == null)
         {
-            GetComponent<Text>().enabled = true; 
+            GetComponent<Text>().enabled = true;
+            reset.gameObject.SetActive(true);
         }
-        if (GetComponent<Text>().enabled && Input.anyKeyDown)
-        {
-            reset_the_game();
-        }    
     }
     public void reset_the_game()
     {
