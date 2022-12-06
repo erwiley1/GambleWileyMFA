@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class start_game : MonoBehaviour
 {
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class start_game : MonoBehaviour
     {
         
     }
+    public void start_clicked() { animator.SetBool("clicked", true); }
     public void Start_the_game()
     {
         SceneManager.LoadScene(1);
