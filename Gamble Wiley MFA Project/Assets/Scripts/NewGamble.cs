@@ -18,6 +18,7 @@ public class Patterns
         modifiers = GameObject.FindGameObjectWithTag("Modifier Manager");
         result = GameObject.FindGameObjectWithTag("result");
         Debug.Log("Modifiers found! - NewGamble");
+        
     }
 
     public Patterns(Sprite[] spirt)
@@ -25,7 +26,7 @@ public class Patterns
         //to add a new result, add it as a function on modifiers and call it during the roll's result
         Start();
         int random = Random.Range(1, 1001); // (1, 1001) for all results, (1,1) and change the (1) result to test a specific outcome
-        if (random >= 1 && random <= 166) { placeHolder = new Vector3(0, 0, 0); modifiers.GetComponent<modifiers>().Increase_player_damage(); result.GetComponent<Text>().text = "Player Damage Rises";  }
+        if (random >= 1 && random <= 166) { placeHolder = new Vector3(0, 0, 0); modifiers.GetComponent<modifiers>().Increase_player_damage(); result.GetComponent<Text>().text = "Player Damage Rises"; }
         else if (random >= 167 && random <= 332) { placeHolder = new Vector3(1, 1, 1); modifiers.GetComponent<modifiers>().Increase_player_speed(); result.GetComponent<Text>().text = "Player Speed Swiftens"; }
         else if (random >= 333 && random <= 498) { placeHolder = new Vector3(2, 2, 2); modifiers.GetComponent<modifiers>().Increase_player_attack_speed(); result.GetComponent<Text>().text = "Player Attacks Hasten"; }
         else if (random >= 499 && random <= 664) { placeHolder = new Vector3(3, 3, 3); modifiers.GetComponent<modifiers>().Increase_enemy_damage(); result.GetComponent<Text>().text = "Enemy Damage Rises"; }
@@ -50,6 +51,9 @@ public class Patterns
 }
 public class NewGamble : MonoBehaviour
 {
+    public AudioSource sound_player;
+    public AudioClip[] audio_options;
+
     public Text CoinText;
     public int Coins;
     public Image[] slots;
@@ -71,6 +75,9 @@ public class NewGamble : MonoBehaviour
             Coins -= 10; //updates coins locally
             WaveManager.GetComponent<wave_manager>().UpdateCoins(-10); //updates coins on wave_manager
             CoinText.text = Coins.ToString();
+
+            StartCoroutine(spin_sounds());
+
             pat = new Patterns(image);
             IsSpin = true;
             Spinning = true;
@@ -103,6 +110,15 @@ public class NewGamble : MonoBehaviour
             Spinning = false;
         }
 
+    }
+
+    IEnumerator spin_sounds()
+    {
+        sound_player.clip = audio_options[1];
+        sound_player.Play();
+        yield return new WaitForSeconds(3);
+        sound_player.clip = audio_options[2];
+        sound_player.Play();
     }
 
     IEnumerator Magic()
