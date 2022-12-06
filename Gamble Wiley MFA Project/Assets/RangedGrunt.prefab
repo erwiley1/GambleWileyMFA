@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1977378425290842663}
   - component: {fileID: 1977378425290842662}
   - component: {fileID: 1977378425290842665}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1977378425640908541}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1977378425765616275}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1977378426055627412}
   - component: {fileID: 1977378426055627413}
   - component: {fileID: 4848412814517082434}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 5387853494037907889}
   - component: {fileID: 2742828308441877904}
   - component: {fileID: 2317347603684139449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RangedGrunt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ MonoBehaviour:
   EnemyProjectile: {fileID: 4259534845450203449, guid: 5982d23ac07468241b114eb23fc29808, type: 3}
   followPlayerRanged: 5
   inRange: 0
-  attackRange: 4
+  attackRange: 8
   startTimeBtwnShots: 0.8
 --- !u!114 &7664973435957103558
 MonoBehaviour:
@@ -559,7 +559,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -576,7 +576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566957982292409396}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

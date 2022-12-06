@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1429160554}
   - component: {fileID: 1429160555}
   - component: {fileID: 6356842933076904380}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 2068132569}
   - component: {fileID: 2068132568}
   - component: {fileID: 2068132567}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 5887487873497979215}
   - component: {fileID: -4800427207242670738}
   - component: {fileID: -4946693545495072441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grunt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1067349574281997514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

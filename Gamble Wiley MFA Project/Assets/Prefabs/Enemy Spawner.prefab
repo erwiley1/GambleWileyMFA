@@ -46,3 +46,4 @@ MonoBehaviour:
   Wave_Manager: {fileID: 0}
   Current_Wave: 0
   Grunt: {fileID: 6268721513354136001, guid: f118775a7f34ebe4a8182b05c7ea8c03, type: 3}
+  Triggerman: {fileID: 5588956362264336703, guid: 97f0886488fa9cf42a84318c0b98423b, type: 3}
