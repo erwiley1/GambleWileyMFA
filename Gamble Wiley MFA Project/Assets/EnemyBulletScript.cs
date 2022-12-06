@@ -12,10 +12,15 @@ public class EnemyBulletScript : MonoBehaviour
     int travelDirectiony = 1;
     int travelDirectionx = 1;
 
+    public GameObject modifiers;
+
     // Start is called before the first frame update
     void Start()
     {
         damage = 1;
+        modifiers = GameObject.FindGameObjectWithTag("Modifier Manager");
+        damage *= modifiers.GetComponent<modifiers>().current_enemy_damage;
+        
         target = GameObject.FindWithTag("Player").transform;
         Invoke("DestroyProjectile", lifeTime);
 

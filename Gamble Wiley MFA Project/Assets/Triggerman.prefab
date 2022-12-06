@@ -405,7 +405,8 @@ MonoBehaviour:
   followPlayerRanged: 0
   inRange: 0
   attackRange: 10
-  startTimeBtwnShots: 0.5
+  startTimeBtwnShots: 5
+  modifiers: {fileID: 0}
 --- !u!1 &5421948801422502114
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +489,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5421948801422502115
 MonoBehaviour:
   m_ObjectHideFlags: 0

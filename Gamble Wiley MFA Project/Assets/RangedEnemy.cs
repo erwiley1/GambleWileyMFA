@@ -18,6 +18,13 @@ public class RangedEnemy : MonoBehaviour
     public float startTimeBtwnShots;
     private float timeBtwnShots;
 
+    public GameObject modifiers;
+
+    private void Start()
+    {
+        modifiers = GameObject.FindGameObjectWithTag("Modifier Manager");
+        startTimeBtwnShots /= modifiers.GetComponent<modifiers>().current_enemy_attack_speed;
+    }
 
     void Update()
     {
