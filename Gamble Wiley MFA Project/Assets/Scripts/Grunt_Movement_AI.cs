@@ -38,7 +38,7 @@ public class Grunt_Movement_AI : MonoBehaviour
                 transform.position = new Vector3(40, 17, 0);
                 break;
             case 3:
-                transform.position = new Vector3(-27, -18, 0);
+                transform.position = new Vector3(-16, -15, 0);
                 break;
             case 4:
                 transform.position = new Vector3(25, -17, 0);
